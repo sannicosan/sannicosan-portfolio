@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1250" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a2e"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="1250" fill="#ffffff"/>
+
+  <!-- 1. Event trigger -->
+  <rect x="210" y="20" width="680" height="80" rx="6" fill="#eef1fc" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="550" y="55" text-anchor="middle" font-size="24" fill="#1a1a2e">Event Trigger</text>
+  <text x="550" y="82" text-anchor="middle" font-size="18" fill="#444">school_year, student_ids (optional)</text>
+  <line x1="550" y1="100" x2="550" y2="140" stroke="#1a1a2e" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <!-- 2. student_capture -->
+  <rect x="210" y="140" width="680" height="100" rx="6" fill="#eef1fc" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="550" y="173" text-anchor="middle" font-size="24" fill="#1a1a2e">student_capture (Lambda)</text>
+  <text x="550" y="200" text-anchor="middle" font-size="18" fill="#444">Composable SQL rules decide who needs (re)processing</text>
+  <text x="550" y="223" text-anchor="middle" font-size="18" fill="#444">Writes candidate student IDs to S3</text>
+  <line x1="550" y1="240" x2="550" y2="280" stroke="#1a1a2e" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <!-- 3. S3 -->
+  <rect x="210" y="280" width="680" height="80" rx="6" fill="#eef1fc" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="550" y="315" text-anchor="middle" font-size="24" fill="#1a1a2e">S3</text>
+  <text x="550" y="342" text-anchor="middle" font-size="18" fill="#444">Capture output (student ID list)</text>
+  <line x1="550" y1="360" x2="550" y2="400" stroke="#1a1a2e" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <!-- 4. metric_processing -->
+  <rect x="210" y="400" width="680" height="120" rx="6" fill="#eef1fc" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="550" y="433" text-anchor="middle" font-size="24" fill="#1a1a2e">metric_processing (Lambda)</text>
+  <text x="550" y="460" text-anchor="middle" font-size="18" fill="#444">Polars compute engine · metrics-as-code</text>
+  <text x="550" y="483" text-anchor="middle" font-size="18" fill="#444">Dependency-graph resolution (topological sort)</text>
+  <text x="550" y="506" text-anchor="middle" font-size="18" fill="#444">Row-count validation, then UPSERT to RDS</text>
+  <line x1="550" y1="520" x2="550" y2="560" stroke="#1a1a2e" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <!-- 5. schema_metadata -->
+  <rect x="210" y="560" width="680" height="100" rx="6" fill="#eef1fc" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="550" y="593" text-anchor="middle" font-size="24" fill="#1a1a2e">schema_metadata (Lambda)</text>
+  <text x="550" y="620" text-anchor="middle" font-size="18" fill="#444">Syncs DB schema to declared metrics, rebuilds views</text>
+  <text x="550" y="643" text-anchor="middle" font-size="18" fill="#444">Publishes column metadata to internal analytics app</text>
+  <line x1="550" y1="660" x2="550" y2="700" stroke="#1a1a2e" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <!-- 6. RDS -->
+  <rect x="210" y="700" width="680" height="80" rx="6" fill="#eef1fc" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="550" y="735" text-anchor="middle" font-size="24" fill="#1a1a2e">RDS PostgreSQL</text>
+  <text x="550" y="762" text-anchor="middle" font-size="18" fill="#444">Idempotent UPSERT · student profile table</text>
+  <line x1="550" y1="780" x2="550" y2="820" stroke="#1a1a2e" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <!-- 7. Analytics app -->
+  <rect x="210" y="820" width="680" height="80" rx="6" fill="#eef1fc" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="550" y="855" text-anchor="middle" font-size="24" fill="#1a1a2e">Internal Analytics App</text>
+  <text x="550" y="882" text-anchor="middle" font-size="18" fill="#444">Counselors &amp; staff consume student profile indicators</text>
+
+  <!-- Side box: engineering concepts, aligned with rows 4-5 -->
+  <rect x="10" y="400" width="175" height="260" rx="6" fill="#fdf3e7" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="97" y="432" text-anchor="middle" font-size="18" fill="#1a1a2e" font-weight="bold">Design Notes</text>
+  <text x="97" y="462" text-anchor="middle" font-size="14" fill="#444">Metrics as code,</text>
+  <text x="97" y="480" text-anchor="middle" font-size="14" fill="#444">not hand-written SQL</text>
+  <text x="97" y="510" text-anchor="middle" font-size="14" fill="#444">Columnar processing</text>
+  <text x="97" y="528" text-anchor="middle" font-size="14" fill="#444">(Polars, vectorized)</text>
+  <text x="97" y="558" text-anchor="middle" font-size="14" fill="#444">Fail-loud data</text>
+  <text x="97" y="576" text-anchor="middle" font-size="14" fill="#444">quality guards</text>
+  <text x="97" y="606" text-anchor="middle" font-size="14" fill="#444">Concurrency via</text>
+  <text x="97" y="624" text-anchor="middle" font-size="14" fill="#444">ThreadPoolExecutor</text>
+
+  <line x1="185" y1="530" x2="205" y2="500" stroke="#1a1a2e" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow2)"/>
+
+  <!-- Result / highlight caption -->
+  <rect x="60" y="940" width="840" height="280" rx="8" fill="#f4f7fd" stroke="#1a1a2e" stroke-width="1.5"/>
+  <text x="480" y="985" text-anchor="middle" font-size="22" fill="#1a1a2e" font-weight="bold">Recent Modernization</text>
+  <text x="480" y="1023" text-anchor="middle" font-size="20" fill="#1a1a2e">Migrated to this metrics-as-code architecture and</text>
+  <text x="480" y="1050" text-anchor="middle" font-size="20" fill="#1a1a2e">rebuilt its test suite using an AI-assisted,</text>
+  <text x="480" y="1077" text-anchor="middle" font-size="20" fill="#1a1a2e">agentic coding workflow</text>
+  <text x="480" y="1112" text-anchor="middle" font-size="18" fill="#444">First production use of agentic AI workflows at work —</text>
+  <text x="480" y="1136" text-anchor="middle" font-size="18" fill="#444">planning &amp; executing the migration, generating tests,</text>
+  <text x="480" y="1160" text-anchor="middle" font-size="18" fill="#444">and refactoring metric definitions</text>
+  <text x="480" y="1195" text-anchor="middle" font-size="16" fill="#666" font-style="italic">95% automated test-coverage gate enforced pre-commit</text>
+</svg>

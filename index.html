@@ -16,10 +16,10 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="#" class="image avatar"><img src="images/grad pic.png" alt="" /></a>
-					<h1><strong>I am Nicolás Sánchez</strong>, a Data &<br />
-					Machine Learning Engineer with 3+<br />
-					years of experience in the tech industry.</h1>
+					<a href="#" class="image avatar"><img src="images/professional_pic_avatar.jpg" alt="" /></a>
+					<h1><strong>I am Nicolás Sánchez</strong>, a Data Engineer<br />
+					with 4+ years of experience building<br />
+					cloud-native data platforms on AWS & Snowflake.</h1>
 				</div>
 			</header>
 
@@ -34,10 +34,10 @@
 							<!-- <h3><a href = "https://www.linkedin.com/in/sannicosan/"> @sannicosan</a> </h3> -->
 
 						</header>
-						<p> Results-driven Data Engineer with +3 years of hands-on experience in the Data industry. Adept at translating complex business requirements into scalable and efficient 
-						data solutions. I possess a unique combination of academic knowledge and practical expertise in the Data Engineering and Science field, where I am currently working in 
-						multiple projects for a US-based client. Pursuing a Master's Degree in Data Science from MIT (2023-2024).
-						<br> <br> <u>Stack:</u> Python, SQL, Snowflake, AWS (Amazon RDS, Glue Lambda, Athena, S3), PySpark, Boto3, Pandas, Docker, etc.
+						<p> Results-driven Data Engineer with +4 years of hands-on experience in the Data industry. Adept at translating complex business requirements into scalable and efficient
+						data solutions. I possess a unique combination of academic knowledge and practical expertise in the Data Engineering and Science field, where I am currently working in
+						multiple projects for a US-based EdTech client. Pursuing a Master's Degree in Statistics and Data Science from MIT (2023 to date).
+						<br> <br> <u>Stack:</u> Python, Advanced SQL, Snowflake, AWS (DMS, RDS, Glue, Lambda, Athena, S3), Terraform, PySpark, Boto3, Pandas, Docker, etc.
 							
 							<!-- <br> <br>
 							Strong in machine learning, problem-solving
@@ -53,6 +53,32 @@
 						<h2>Projects</h2>
 						<div class="row">
 
+							<!-- EOS: Snowflake Data Warehouse Redesign -->
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="images/svg/snowflake-warehouse-architecture.svg" class="image fit thumb"><img src="images/svg/snowflake-warehouse-architecture.svg" alt="Snowflake data warehouse architecture diagram" /></a>
+								<h3>Snowflake Data Warehouse Redesign &mdash; Cost &amp; Reliability at Scale</h3>
+								<p>Owned the end-to-end redesign of a Snowflake data warehouse (AWS DMS &rarr; S3 &rarr; Snowflake ingestion, star-schema
+								dimensional modeling, CDC merge) serving reporting across 1,280 schools and ~3M students. Cut infrastructure
+								costs 60%+ while sustaining 98%+ data accuracy, backed by a custom automated data-testing framework.</p>
+							</article>
+
+							<!-- EOS: Serverless Metrics Processing Engine -->
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="images/svg/metrics-engine-architecture.svg" class="image fit thumb"><img src="images/svg/metrics-engine-architecture.svg" alt="Serverless metrics processing engine architecture diagram" /></a>
+								<h3>Serverless Student Metrics Processing Engine</h3>
+								<p>Serverless AWS Lambda pipeline (Polars, dependency-graph resolution, metrics-as-code) computing derived
+								student profile indicators for an education platform. Recently modernized using an AI-assisted, agentic coding
+								workflow to migrate the architecture and generate its test suite &mdash; a first production use of agentic AI at work.</p>
+							</article>
+
+							<!-- EOS: Cross-source ETL -->
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="images/fulls/09.jpg" class="image fit thumb"><img src="images/thumbs/09.jpg" alt="" /></a>
+								<h3>Cross-Source ETL for an Education Platform</h3>
+								<p>Built an ETL pipeline from scratch (AWS Lambda, Glue, Python/pandas) unifying an internal file-upload source
+								and a third-party API into a single RDS PostgreSQL database, including schema design and ERD.</p>
+							</article>
+
 							<!-- Product detection -->
 							<article class="col-6 col-12-xsmall work-item">
 								<a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
@@ -60,47 +86,13 @@
 									Product detection for supermarket inventory management with YoloV5</a></h3>
 								<p>Applied computer vision techniques to detect products in images of supermarket shelves.</p>
 							</article>
-							
-							<!-- NLP -->
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="" /></a>
-								<h3><a href="https://github.com/sannicosan/VehicleClassification_SP5">
-									Natural Language Processing for Sentiment Analysis</a></h3>
-								<p>Trained a neural network for the classification of 50K real-life movie reviews based on users sentiments.</p>
-
-							<!-- Computer Vision -->
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
-								<h3><a href="https://github.com/sannicosan/SentymentAnalysis_NLP_SP6">
-									Neural Network for Vehicle Classification</a></h3>
-								<p>Trained and fine-tuned  CNN (Resnet50 architecture) on AWS for the classification of 16000 different car 
-									images with an overall accuracy of 75% for 196 different vehicle classes..</p>
-
-							<!-- E-Recipe Analysis -->
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
-								<h3><a href="https://app.datacamp.com/workspace/w/42e85931-331e-4092-a9e4-4154b5123bf3">
-									E-Recipe-popularity-prediction</a></h3>
-								<p>Correctly prediction of popular e-recipes for the Tasty Byte  homepage.</p>
-							</article>
-
-							<!-- Credit Risk Analysis -->
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
-								<h3><a href="https://github.com/sannicosan/Credit_Risk_Analysis_SP3">
-									Credit Risk Analysis with binary classification models</a></h3>
-								<p>Developed feature engineering, data preprocessing, built a machine learning pipeline and trained 
-								high-performance binary classifiers </p>
-							</article>
 
 							<!-- NBa Public API -->
 							<article class="col-6 col-12-xsmall work-item">
 								<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
-								<h3><a href="https://github.com/sannicosan/NBA_data_analysis_SP1_SP2">		
+								<h3><a href="https://github.com/sannicosan/NBA_data_analysis_SP1_SP2">
 									NBA Public API Data Analysis</a></h3>
-								<p>Performed Data Extraction from a Public NBA API, followed by Exploratory Data Analysis, Dataset Cleaning & Merging, Statistics and 										Visualization.</p>
+								<p>Performed Data Extraction from a Public NBA API, followed by Exploratory Data Analysis, Dataset Cleaning &amp; Merging, Statistics and Visualization.</p>
 							</article>
 						</div>
 						<ul class="actions">
